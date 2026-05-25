@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Produk SL Plastik</title>
+<title>SL Plastik</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -17,9 +17,86 @@
   font-family:'Poppins',sans-serif;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  background:#fff;
+  background:#f5f5f5;
   color:#222;
+}
+
+/* TOPBAR */
+
+.topbar{
+  background:#FFD700;
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+/* HEADER */
+
+header{
+  background:white;
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.logo img{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.logo-text h1{
+  color:#0052CC;
+  font-size:42px;
+  line-height:1;
+}
+
+.logo-text p{
+  color:#ff2a2a;
+  font-size:14px;
+  font-weight:500;
+}
+
+.search-box{
+  width:45%;
+  display:flex;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:8px 0 0 8px;
+  outline:none;
+}
+
+.search-box button{
+  background:#FFD700;
+  border:none;
+  padding:0 25px;
+  border-radius:0 8px 8px 0;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.header-menu{
+  display:flex;
+  gap:25px;
+  font-size:15px;
 }
 
 /* NAVBAR */
@@ -27,136 +104,191 @@ body{
 nav{
   background:#0052CC;
   padding:18px 50px;
+}
+
+nav ul{
+  list-style:none;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  color:white;
-  font-size:28px;
-  font-weight:700;
-}
-
-.menu{
-  display:flex;
-  gap:35px;
-}
-
-.menu a{
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-}
-
-/* HEADER */
-
-.header{
-  padding:60px 70px 30px;
-}
-
-.header h1{
-  font-size:48px;
-  margin-bottom:10px;
-}
-
-.header p{
-  color:#666;
-  font-size:18px;
-}
-
-/* LAYOUT */
-
-.container{
-  display:flex;
-  padding:20px 70px 70px;
   gap:40px;
 }
 
-/* SIDEBAR */
-
-.sidebar{
-  width:230px;
-}
-
-.sidebar h3{
-  margin-bottom:20px;
-  font-size:20px;
-}
-
-.filter-box{
-  background:#f5f5f5;
-  padding:20px;
-  border-radius:15px;
-}
-
-.filter-box ul{
-  list-style:none;
-}
-
-.filter-box li{
-  padding:12px 0;
-  border-bottom:1px solid #ddd;
-  cursor:pointer;
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
   transition:0.3s;
 }
 
-.filter-box li:hover{
+nav a:hover{
+  color:#FFD700;
+}
+
+/* HERO */
+
+.hero{
+  background:#FFD700;
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px;
+  gap:50px;
+}
+
+.hero-text{
+  max-width:650px;
+}
+
+.hero-text h2{
+  font-size:78px;
   color:#0052CC;
-  padding-left:5px;
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.hero-text h3{
+  font-size:42px;
+  color:#ff2a2a;
+  margin-bottom:25px;
+}
+
+.hero-text p{
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:35px;
+}
+
+.hero-text button{
+  background:#0052CC;
+  color:white;
+  border:none;
+  padding:16px 35px;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:600;
+}
+
+.hero-text button:hover{
+  background:#003d99;
+}
+
+.hero img{
+  width:420px;
+  border-radius:25px;
+  object-fit:cover;
+}
+
+/* KATEGORI */
+
+.kategori{
+  padding:80px 50px;
+  background:white;
+}
+
+.kategori h2{
+  text-align:center;
+  color:#0052CC;
+  font-size:42px;
+  margin-bottom:50px;
+}
+
+.kategori-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.box{
+  background:#fff;
+  border-radius:20px;
+  padding:40px 20px;
+  text-align:center;
+  transition:0.3s;
+  border:1px solid #eee;
+}
+
+.box:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.box img{
+  width:75px;
+  margin-bottom:20px;
+}
+
+.box h3{
+  font-size:20px;
 }
 
 /* PRODUK */
 
-.produk-grid{
-  flex:1;
+.produk{
+  padding:80px 50px;
+}
 
+.produk h2{
+  text-align:center;
+  color:#0052CC;
+  font-size:42px;
+  margin-bottom:50px;
+}
+
+.produk-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
 }
 
 .card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .card img{
   width:100%;
   height:260px;
   object-fit:cover;
-  border-radius:16px;
-  margin-bottom:15px;
+}
+
+.card-content{
+  padding:25px;
 }
 
 .card h3{
-  font-size:20px;
-  margin-bottom:8px;
+  font-size:22px;
+  margin-bottom:12px;
 }
 
-.desc{
-  color:#777;
-  font-size:14px;
-  margin-bottom:10px;
+.card p{
+  color:#666;
+  line-height:1.7;
+  margin-bottom:15px;
 }
 
 .harga{
-  font-size:20px;
-  font-weight:600;
-  margin-bottom:15px;
+  color:#ff2a2a !important;
+  font-size:22px;
+  font-weight:700;
 }
 
 .card button{
   width:100%;
-  padding:13px;
-  border:none;
-  border-radius:10px;
   background:#FFD700;
-  font-weight:600;
+  border:none;
+  padding:14px;
+  border-radius:10px;
   cursor:pointer;
+  font-weight:600;
   transition:0.3s;
 }
 
@@ -164,29 +296,97 @@ nav{
   background:#ffcc00;
 }
 
+/* FOOTER */
+
+footer{
+  background:#0052CC;
+  color:white;
+  padding:60px 50px 30px;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+footer h3{
+  margin-bottom:20px;
+  font-size:22px;
+}
+
+footer p{
+  margin-bottom:10px;
+  line-height:1.8;
+}
+
+.copyright{
+  text-align:center;
+  margin-top:40px;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,0.3);
+}
+
 /* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-  .container{
+  .hero{
     flex-direction:column;
-    padding:20px 30px 50px;
+    text-align:center;
+    padding:60px 30px;
   }
 
-  .sidebar{
+  .hero img{
+    width:100%;
+    max-width:350px;
+  }
+
+  .hero-text h2{
+    font-size:54px;
+  }
+
+  .hero-text h3{
+    font-size:30px;
+  }
+
+  header{
+    flex-direction:column;
+    gap:25px;
+  }
+
+  .search-box{
     width:100%;
   }
 
-  .header{
-    padding:40px 30px 20px;
+}
+
+@media(max-width:768px){
+
+  .topbar{
+    flex-direction:column;
+    text-align:center;
+    gap:5px;
   }
 
-  .header h1{
-    font-size:36px;
+  nav ul{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
   }
 
-  nav{
-    padding:15px 30px;
+  .hero-text h2{
+    font-size:42px;
+  }
+
+  .hero-text h3{
+    font-size:24px;
+  }
+
+  .kategori,
+  .produk{
+    padding:60px 25px;
   }
 
 }
@@ -196,73 +396,175 @@ nav{
 
 <body>
 
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+  <p>Selamat datang di Toko SL Plastik</p>
+
+  <p>Buka : Senin - Sabtu (08.00 - 17.00)</p>
+
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="logo">
+
+    <img src="logo.png" alt="Logo">
+
+    <div class="logo-text">
+      <h1>PLASTIK</h1>
+      <p>SOLUSI PLASTIK ANDA</p>
+    </div>
+
+  </div>
+
+  <div class="search-box">
+
+    <input type="text" placeholder="Cari produk plastik...">
+
+    <button>Cari</button>
+
+  </div>
+
+  <div class="header-menu">
+
+    <p>WhatsApp</p>
+    <p>Keranjang</p>
+
+  </div>
+
+</header>
+
 <!-- NAVBAR -->
 
 <nav>
 
-  <div class="logo">SL Plastik</div>
+  <ul>
 
-  <div class="menu">
-    <a href="index.html">Beranda</a>
-    <a href="produk.html">Produk</a>
-    <a href="tentang.html">Tentang</a>
-  </div>
+    <li><a href="#">Beranda</a></li>
+    <li><a href="#">Produk</a></li>
+    <li><a href="#">Tentang Kami</a></li>
+    <li><a href="#">Cara Belanja</a></li>
+    <li><a href="#">Kontak</a></li>
+
+  </ul>
 
 </nav>
 
-<!-- HEADER -->
+<!-- HERO -->
 
-<section class="header">
+<section class="hero">
 
-  <h1>Produk Plastik</h1>
+  <div class="hero-text">
 
-  <p>
-    Berbagai jenis plastik berkualitas untuk kebutuhan usaha dan sehari-hari.
-  </p>
+    <h2>SL PLASTIK</h2>
+
+    <h3>Solusi Kebutuhan Plastik Anda</h3>
+
+    <p>
+      Menyediakan berbagai jenis plastik berkualitas
+      seperti PP, HD, OPP, PE dan lainnya dengan
+      harga terbaik untuk kebutuhan usaha dan rumah tangga.
+    </p>
+
+    <button>Lihat Produk</button>
+
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1000&auto=format&fit=crop">
 
 </section>
 
-<!-- CONTENT -->
+<!-- KATEGORI -->
 
-<div class="container">
+<section class="kategori">
 
-  <!-- SIDEBAR -->
+  <h2>Kategori Produk</h2>
 
-  <aside class="sidebar">
+  <div class="kategori-box">
 
-    <h3>Kategori</h3>
-
-    <div class="filter-box">
-
-      <ul>
-        <li>Plastik PP</li>
-        <li>Plastik HD</li>
-        <li>Plastik OPP</li>
-        <li>Plastik PE</li>
-        <li>Kantong Plastik</li>
-      </ul>
-
+    <div class="box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+      <h3>Plastik PP</h3>
     </div>
 
-  </aside>
+    <div class="box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png">
+      <h3>Plastik HD</h3>
+    </div>
 
-  <!-- PRODUK -->
+    <div class="box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+      <h3>Plastik OPP</h3>
+    </div>
 
-  <main class="produk-grid">
+    <div class="box">
+      <img src="https://cdn-icons-png.flaticon.com/512/679/679922.png">
+      <h3>Plastik PE</h3>
+    </div>
+
+    <div class="box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046847.png">
+      <h3>Kantong Plastik</h3>
+    </div>
+
+    <div class="box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png">
+      <h3>Lainnya</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUK -->
+
+<section class="produk">
+
+  <h2>Produk Terlaris</h2>
+
+  <div class="produk-grid">
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1604186838309-c6715f0d3e6d?q=80&w=1000&auto=format&fit=crop">
+
+      <div class="card-content">
+
+        <h3>Plastik PP Roll</h3>
+
+        <p>
+          Plastik kuat dan cocok untuk kebutuhan packing.
+        </p>
+
+        <p class="harga">Rp 55.000 / kg</p>
+
+        <button>Lihat Detail</button>
+
+      </div>
+
+    </div>
 
     <div class="card">
 
       <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1000&auto=format&fit=crop">
 
-      <h3>Plastik PP Roll</h3>
+      <div class="card-content">
 
-      <p class="desc">
-        Plastik kuat dan cocok untuk kebutuhan packing.
-      </p>
+        <h3>Plastik HD Roll</h3>
 
-      <p class="harga">Rp 55.000</p>
+        <p>
+          Plastik berkualitas tebal dan tahan lama.
+        </p>
 
-      <button>Lihat Detail</button>
+        <p class="harga">Rp 48.000 / kg</p>
+
+        <button>Lihat Detail</button>
+
+      </div>
 
     </div>
 
@@ -270,37 +572,72 @@ nav{
 
       <img src="https://images.unsplash.com/photo-1604186838309-c6715f0d3e6d?q=80&w=1000&auto=format&fit=crop">
 
-      <h3>Plastik HD Roll</h3>
+      <div class="card-content">
 
-      <p class="desc">
-        Kualitas tebal dan tahan lama.
-      </p>
+        <h3>Plastik OPP Roll</h3>
 
-      <p class="harga">Rp 48.000</p>
+        <p>
+          Cocok untuk kemasan makanan dan produk.
+        </p>
 
-      <button>Lihat Detail</button>
+        <p class="harga">Rp 60.000 / kg</p>
 
-    </div>
+        <button>Lihat Detail</button>
 
-    <div class="card">
-
-      <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1000&auto=format&fit=crop">
-
-      <h3>Plastik OPP</h3>
-
-      <p class="desc">
-        Cocok untuk kemasan makanan dan produk.
-      </p>
-
-      <p class="harga">Rp 60.000</p>
-
-      <button>Lihat Detail</button>
+      </div>
 
     </div>
 
-  </main>
+  </div>
 
-</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-container">
+
+    <div>
+
+      <h3>SL Plastik</h3>
+
+      <p>
+        Jl. Leuwi Panjang No.127 A,
+        Kota Bandung, Jawa Barat 40233
+      </p>
+
+    </div>
+
+    <div>
+
+      <h3>Kontak</h3>
+
+      <p>0852-2086-9625</p>
+
+      <p>slplastik@gmail.com</p>
+
+    </div>
+
+    <div>
+
+      <h3>Sosial Media</h3>
+
+      <p>Instagram : @sl_plastik</p>
+
+      <p>WhatsApp : 0852-2086-9625</p>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+
+    <p>© 2026 SL Plastik. All Rights Reserved.</p>
+
+  </div>
+
+</footer>
 
 </body>
 </html>
