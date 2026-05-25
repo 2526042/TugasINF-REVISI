@@ -1,61 +1,301 @@
 <!DOCTYPE html>
+<html lang="id">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Produk SL Plastik</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#fff;
+  color:#222;
+}
+
+/* NAVBAR */
+
+nav{
+  background:#0052CC;
+  padding:18px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  color:white;
+  font-size:28px;
+  font-weight:700;
+}
+
+.menu{
+  display:flex;
+  gap:35px;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* HEADER */
+
+.header{
+  padding:60px 70px 30px;
+}
+
+.header h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.header p{
+  color:#666;
+  font-size:18px;
+}
+
+/* LAYOUT */
 
 .container{
   display:flex;
-  gap:30px;
-  padding:40px;
+  padding:20px 70px 70px;
+  gap:40px;
 }
 
+/* SIDEBAR */
+
 .sidebar{
-  width:220px;
-  background:#FFF4CC;
-  padding:20px;
-  border-radius:10px;
+  width:230px;
 }
+
+.sidebar h3{
+  margin-bottom:20px;
+  font-size:20px;
+}
+
+.filter-box{
+  background:#f5f5f5;
+  padding:20px;
+  border-radius:15px;
+}
+
+.filter-box ul{
+  list-style:none;
+}
+
+.filter-box li{
+  padding:12px 0;
+  border-bottom:1px solid #ddd;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.filter-box li:hover{
+  color:#0052CC;
+  padding-left:5px;
+}
+
+/* PRODUK */
 
 .produk-grid{
   flex:1;
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
 }
-  
+
+.card{
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.desc{
+  color:#777;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.harga{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+.card button{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:10px;
+  background:#FFD700;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card button:hover{
+  background:#ffcc00;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .container{
+    flex-direction:column;
+    padding:20px 30px 50px;
+  }
+
+  .sidebar{
+    width:100%;
+  }
+
+  .header{
+    padding:40px 30px 20px;
+  }
+
+  .header h1{
+    font-size:36px;
+  }
+
+  nav{
+    padding:15px 30px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Daftar Produk</h1>
-</header>
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">SL Plastik</div>
+
+  <div class="menu">
+    <a href="index.html">Beranda</a>
+    <a href="produk.html">Produk</a>
+    <a href="tentang.html">Tentang</a>
+  </div>
+
+</nav>
+
+<!-- HEADER -->
+
+<section class="header">
+
+  <h1>Produk Plastik</h1>
+
+  <p>
+    Berbagai jenis plastik berkualitas untuk kebutuhan usaha dan sehari-hari.
+  </p>
+
+</section>
+
+<!-- CONTENT -->
 
 <div class="container">
 
+  <!-- SIDEBAR -->
+
   <aside class="sidebar">
+
     <h3>Kategori</h3>
 
-    <ul>
-      <li>Plastik PP</li>
-      <li>Plastik HD</li>
-      <li>Plastik OPP</li>
-      <li>Plastik PE</li>
-    </ul>
+    <div class="filter-box">
+
+      <ul>
+        <li>Plastik PP</li>
+        <li>Plastik HD</li>
+        <li>Plastik OPP</li>
+        <li>Plastik PE</li>
+        <li>Kantong Plastik</li>
+      </ul>
+
+    </div>
+
   </aside>
+
+  <!-- PRODUK -->
 
   <main class="produk-grid">
 
     <div class="card">
-      <img src="gambar1.jpg">
-      <h3>Plastik PP</h3>
-      <p>Rp 55.000</p>
+
+      <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1000&auto=format&fit=crop">
+
+      <h3>Plastik PP Roll</h3>
+
+      <p class="desc">
+        Plastik kuat dan cocok untuk kebutuhan packing.
+      </p>
+
+      <p class="harga">Rp 55.000</p>
+
+      <button>Lihat Detail</button>
+
     </div>
 
     <div class="card">
-      <img src="gambar2.jpg">
-      <h3>Plastik HD</h3>
-      <p>Rp 48.000</p>
+
+      <img src="https://images.unsplash.com/photo-1604186838309-c6715f0d3e6d?q=80&w=1000&auto=format&fit=crop">
+
+      <h3>Plastik HD Roll</h3>
+
+      <p class="desc">
+        Kualitas tebal dan tahan lama.
+      </p>
+
+      <p class="harga">Rp 48.000</p>
+
+      <button>Lihat Detail</button>
+
+    </div>
+
+    <div class="card">
+
+      <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1000&auto=format&fit=crop">
+
+      <h3>Plastik OPP</h3>
+
+      <p class="desc">
+        Cocok untuk kemasan makanan dan produk.
+      </p>
+
+      <p class="harga">Rp 60.000</p>
+
+      <button>Lihat Detail</button>
+
     </div>
 
   </main>
@@ -63,3 +303,4 @@
 </div>
 
 </body>
+</html>
