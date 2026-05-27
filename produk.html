@@ -26,7 +26,7 @@ body{
 /* TOPBAR */
 
 .topbar{
-  background:#FFD700;
+  background:#ffd400;
   padding:10px 40px;
   display:flex;
   justify-content:space-between;
@@ -37,71 +37,69 @@ body{
 
 header{
   background:white;
-  padding:25px 40px;
+  padding:20px 40px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
   display:flex;
   align-items:center;
-  gap:15px;
+  gap:10px;
 }
 
 .logo img{
-  width:80px;
-  height:80px;
-  border-radius:50%;
+  width:90px;
+  height:90px;
   object-fit:cover;
+  border-radius:50%;
 }
 
 .logo-text h1{
-  font-size:30px;
-  color:#0052CC;
-  line-height:1;
+  color:#0047b3;
+  font-size:34px;
 }
 
 .logo-text p{
   color:red;
   font-size:13px;
-  font-weight:500;
-  margin-top:5px;
 }
 
 .search-box{
-  width:45%;
   display:flex;
+  width:40%;
 }
 
 .search-box input{
   width:100%;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:8px 0 0 8px;
+  padding:12px;
+  border:1px solid #ccc;
+  border-right:none;
+  border-radius:5px 0 0 5px;
   outline:none;
 }
 
 .search-box button{
-  padding:0 30px;
+  padding:12px 18px;
   border:none;
-  background:#FFD700;
-  border-radius:0 8px 8px 0;
-  font-weight:600;
+  background:#ffd400;
   cursor:pointer;
+  border-radius:0 5px 5px 0;
+  font-weight:bold;
 }
 
 .header-menu{
   display:flex;
-  gap:30px;
-  font-size:16px;
+  gap:20px;
+  font-size:15px;
 }
 
 /* NAVBAR */
 
 nav{
-  background:#0052CC;
-  padding:18px 40px;
+  background:#0047b3;
+  padding:15px 40px;
 }
 
 nav ul{
@@ -113,152 +111,144 @@ nav ul{
 nav a{
   color:white;
   text-decoration:none;
-  font-weight:500;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#FFD700;
+  font-weight:bold;
 }
 
 /* TITLE */
 
 .page-title{
   background:white;
-  padding:60px 50px 30px;
+  padding:50px 40px 20px;
 }
 
 .page-title h1{
-  color:#0052CC;
-  font-size:52px;
+  color:#0047b3;
+  font-size:58px;
   margin-bottom:10px;
 }
 
 .page-title p{
-  color:#666;
-  font-size:17px;
+  font-size:18px;
+  color:#555;
 }
 
 /* KATEGORI */
 
 .kategori{
-  padding:30px 50px 10px;
+  padding:40px;
+  background:white;
 }
 
 .kategori h2{
-  font-size:36px;
-  color:#0052CC;
-  margin-bottom:25px;
+  color:#0047b3;
+  margin-bottom:30px;
+  font-size:34px;
 }
 
 .kategori-menu{
   display:flex;
-  gap:15px;
   flex-wrap:wrap;
+  gap:15px;
 }
 
 .kategori-menu button{
-  padding:12px 22px;
+  background:#f5f5f5;
   border:none;
+  padding:12px 22px;
   border-radius:30px;
-  background:white;
+  font-weight:bold;
   cursor:pointer;
-  font-weight:600;
   transition:0.3s;
 }
 
 .kategori-menu button:hover{
-  background:#FFD700;
+  background:#ffd400;
 }
 
 .kategori-menu .active{
-  background:#0052CC;
+  background:#0047b3;
   color:white;
 }
 
 /* PRODUK */
 
 .produk{
-  padding:40px 50px 80px;
+  padding:60px 40px;
 }
 
 .produk-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
 }
 
 .card{
   background:white;
-  border-radius:18px;
-  overflow:hidden;
+  border-radius:10px;
+  padding:20px;
+  border:1px solid #ddd;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+  transform:translateY(-5px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img{
   width:100%;
-  height:240px;
+  height:220px;
   object-fit:cover;
+  border-radius:8px;
+  margin-bottom:15px;
 }
 
 .card-content{
-  padding:22px;
+  padding:0;
 }
 
 .card h3{
-  font-size:22px;
-  margin-bottom:20px;
+  margin-bottom:15px;
+  font-size:18px;
 }
 
 .card button{
-  width:100%;
-  background:#FFD700;
+  background:#ffd400;
   border:none;
-  padding:14px;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:bold;
+  padding:10px 20px;
+  border-radius:5px;
   cursor:pointer;
-  transition:0.3s;
-}
-
-.card button:hover{
-  background:#ffcc00;
+  font-weight:bold;
+  width:100%;
 }
 
 /* FOOTER */
 
 footer{
-  background:#0052CC;
+  background:#0047b3;
   color:white;
-  padding:60px 50px 30px;
+  padding:40px;
+  margin-top:50px;
 }
 
 .footer-container{
   display:flex;
   justify-content:space-between;
   flex-wrap:wrap;
-  gap:40px;
+  gap:30px;
 }
 
 footer h3{
   margin-bottom:15px;
-  font-size:24px;
 }
 
 footer p{
   margin-bottom:10px;
-  line-height:1.8;
 }
 
 .copyright{
   text-align:center;
-  margin-top:40px;
+  margin-top:30px;
   border-top:1px solid rgba(255,255,255,0.3);
   padding-top:20px;
 }
@@ -266,6 +256,10 @@ footer p{
 /* RESPONSIVE */
 
 @media(max-width:1000px){
+
+  .produk-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 
   header{
     flex-direction:column;
@@ -296,12 +290,8 @@ footer p{
     font-size:40px;
   }
 
-  .produk{
-    padding:30px 20px 60px;
-  }
-
-  .kategori{
-    padding:20px;
+  .produk-grid{
+    grid-template-columns:1fr;
   }
 
 }
@@ -327,7 +317,7 @@ footer p{
 
 <div class="logo">
 
-<img src="logo.png" alt="Logo">
+<img src="logo.png" alt="Logo SL Plastik">
 
 <div class="logo-text">
 
@@ -350,6 +340,7 @@ footer p{
 <div class="header-menu">
 
 <p>WhatsApp</p>
+
 <p>Keranjang</p>
 
 </div>
@@ -507,10 +498,7 @@ Berbagai jenis plastik berkualitas untuk kebutuhan usaha dan rumah tangga.
 
 <h3>SL Plastik</h3>
 
-<p>
-Jl. Leuwi Panjang No.127 A,
-Bandung, Jawa Barat 40233
-</p>
+<p>Jl. Leuwi Panjang No.127 A, Bandung, Jawa Barat 40233</p>
 
 </div>
 
