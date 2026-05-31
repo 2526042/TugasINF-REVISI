@@ -2,999 +2,622 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Produk - SL Plastik</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk - SL Plastik</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    body{
-      background:#f5f5f5;
-      color:#222;
+    body {
+      background: #f5f5f5;
+      color: #222;
     }
 
-    /* TOP BAR */
-    .topbar{
-      background:#ffd400;
-      padding:10px 40px;
-      display:flex;
-      justify-content:space-between;
-      font-size:14px;
+    .topbar {
+      background: #ffd400;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    /* HEADER */
-    header{
-      background:white;
-      padding:20px 40px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    header {
+      background: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .logo-circle{
-      width:60px;
-      height:60px;
-      border:4px solid #0047b3;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      font-weight:bold;
-      color:red;
+    .logo img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #0047b3;
     }
 
-    .logo-text h1{
-      color:#0047b3;
-      font-size:34px;
+    .logo-text h1 { color: #0047b3; font-size: 34px; }
+    .logo-text p { color: red; font-size: 13px; font-weight: bold; }
+
+    .search-box { display: flex; width: 40%; }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      font-size: 15px;
     }
 
-    .logo-text p{
-      color:red;
-      font-size:13px;
+    .search-box button {
+      padding: 12px 18px;
+      border: none;
+      background: #ffd400;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      font-weight: bold;
+      font-size: 15px;
     }
 
-    .search-box{
-      display:flex;
-      width:40%;
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
     }
 
-    .search-box input{
-      width:100%;
-      padding:12px;
-      border:1px solid #ccc;
-      border-right:none;
-      border-radius:5px 0 0 5px;
+    nav {
+      background: #0047b3;
+      padding: 15px 40px;
     }
 
-    .search-box button{
-      padding:12px 18px;
-      border:none;
-      background:#ffd400;
-      cursor:pointer;
-      border-radius:0 5px 5px 0;
-      font-weight:bold;
+    nav ul { display: flex; list-style: none; gap: 40px; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: color 0.2s;
     }
 
-    .header-menu{
-      display:flex;
-      gap:20px;
-      font-size:15px;
+    nav a:hover { color: #ffd400; }
+
+    nav a.active {
+      color: #ffd400;
+      border-bottom: 2px solid #ffd400;
+      padding-bottom: 2px;
     }
 
-    /* NAVBAR */
-    nav{
-      background:#0047b3;
-      padding:15px 40px;
+    .page-title {
+      background: #0047b3;
+      padding: 40px 40px;
+      text-align: center;
     }
 
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:40px;
+    .page-title h1 { color: white; font-size: 42px; margin-bottom: 8px; }
+    .page-title p { font-size: 16px; color: rgba(255,255,255,0.85); }
+
+    .result-info {
+      padding: 12px 40px;
+      background: #fffbea;
+      border-bottom: 1px solid #ffe066;
+      font-size: 14px;
+      color: #555;
+      display: none;
     }
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      font-weight:bold;
+    .result-info.visible { display: block; }
+    .result-info span { color: #0047b3; font-weight: bold; }
+    .result-info a { margin-left: 15px; color: red; cursor: pointer; font-weight: bold; text-decoration: none; }
+
+    .main-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding: 30px 40px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    /* HERO */
-    .hero{
-      background:#ffd400;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:60px 70px;
-      flex-wrap:wrap;
+    .sidebar {
+      flex: 0 0 220px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      padding: 25px 20px;
+      margin-right: 25px;
+      position: sticky;
+      top: 20px;
     }
 
-    .hero-text{
-      width:45%;
+    .sidebar h3 {
+      color: #0047b3;
+      font-size: 17px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ffd400;
     }
 
-    .hero-text h2{
-      font-size:58px;
-      color:#0047b3;
-      margin-bottom:15px;
+    .kategori-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .kategori-list button {
+      background: #f5f5f5;
+      border: 2px solid transparent;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 14px;
+      text-align: left;
+      width: 100%;
+      color: #333;
     }
 
-    .hero-text h3{
-      font-size:32px;
-      color:red;
-      margin-bottom:20px;
+    .kategori-list button:hover { background: #fff3cc; border-color: #ffd400; }
+    .kategori-list button.active { background: #0047b3; color: white; border-color: #0047b3; }
+
+    .sidebar-wa {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
     }
 
-    .hero-text p{
-      font-size:18px;
-      margin-bottom:30px;
-      line-height:1.6;
+    .sidebar-wa p { font-size: 13px; color: #666; margin-bottom: 10px; line-height: 1.5; }
+
+    .sidebar-wa a {
+      display: block;
+      background: #25d366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+      transition: background 0.2s;
     }
 
-    .hero-text button{
-      background:#0047b3;
-      color:white;
-      border:none;
-      padding:15px 30px;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      font-weight:bold;
+    .sidebar-wa a:hover { background: #1ebe5d; }
+
+    .konten { flex: 1; min-width: 0; }
+
+    .produk-count { color: #666; margin-bottom: 20px; font-size: 15px; }
+    .produk-count strong { color: #0047b3; }
+
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 22px;
     }
 
-    .hero img{
-      width:430px;
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      transition: 0.3s;
     }
 
-    /* KATEGORI */
-    .kategori{
-      padding:60px 40px;
-      background:white;
-      text-align:center;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-color: #0047b3;
     }
 
-    .kategori h2{
-      color:#0047b3;
-      margin-bottom:40px;
-      font-size:34px;
+    .card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+
+    .card-content { padding: 14px; }
+
+    .card h3 { margin-bottom: 8px; font-size: 15px; color: #222; }
+
+    .card-badge {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #0047b3;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
 
-    .kategori-box{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:25px;
-}
-    .box{
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:10px;
-      padding:25px;
-      transition:0.3s;
+    .card button {
+      background: #ffd400;
+      border: none;
+      padding: 9px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      font-size: 13px;
+      transition: background 0.2s;
     }
 
-    .box:hover{
-      transform:translateY(-5px);
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    .card button:hover { background: #e6be00; }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #999;
+      display: none;
+      grid-column: 1 / -1;
     }
 
-    .box img{
-      width:70px;
-      margin-bottom:15px;
+    .empty-state p { font-size: 18px; margin-bottom: 10px; }
+
+    .toggle-sidebar-btn {
+      display: none;
+      background: #0047b3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 15px 20px;
     }
 
-    .box h3{
-      font-size:18px;
+    footer {
+      background: #0047b3;
+      color: white;
+      padding: 40px;
     }
 
-    /* PRODUK */
-    .{
-      padding:60px 40px;
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
     }
 
-    .produk h2{
-      text-align:center;
-      color:#0047b3;
-      margin-bottom:40px;
-      font-size:34px;
+    footer h3 { margin-bottom: 15px; font-size: 18px; color: #ffd400; }
+    footer p { margin-bottom: 10px; font-size: 14px; opacity: 0.9; }
+    footer a { color: white; text-decoration: none; opacity: 0.9; }
+    footer a:hover { color: #ffd400; }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 20px;
+      font-size: 14px;
     }
 
-    .produk-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-    .card{
-      background:white;
-      border-radius:10px;
-      padding:20px;
-      border:1px solid #ddd;
-      transition:0.3s;
+    @media (max-width: 1000px) {
+      header { flex-direction: column; gap: 20px; }
+      .search-box { width: 100%; }
+      .main-layout { padding: 20px; }
     }
 
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    @media (max-width: 768px) {
+      .topbar { flex-direction: column; text-align: center; gap: 5px; }
+      nav ul { flex-wrap: wrap; gap: 15px; justify-content: center; }
+      .page-title h1 { font-size: 32px; }
+      .toggle-sidebar-btn { display: block; }
+      .main-layout { flex-direction: column; padding: 15px; }
+      .sidebar { flex: none; width: 100%; margin-right: 0; margin-bottom: 20px; position: static; display: none; }
+      .sidebar.open { display: block; }
+      .produk-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    .card img{
-      width:100%;
-      margin-bottom:15px;
+    @media (max-width: 480px) {
+      .produk-grid { grid-template-columns: 1fr; }
     }
-
-    .card h3{
-      margin-bottom:10px;
-      font-size:18px;
-    }
-
-    .harga{
-      color:red;
-      font-weight:bold;
-      margin-bottom:15px;
-    }
-
-    .card button{
-      background:#ffd400;
-      border:none;
-      padding:10px 20px;
-      border-radius:5px;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    /* FOOTER */
-    footer{
-      background:#0047b3;
-      color:white;
-      padding:40px;
-      margin-top:50px;
-    }
-
-    .footer-container{
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:30px;
-    }
-
-    footer h3{
-      margin-bottom:15px;
-    }
-
-    footer p{
-      margin-bottom:10px;
-    }
-
-    .copyright{
-      text-align:center;
-      margin-top:30px;
-      border-top:1px solid rgba(255,255,255,0.3);
-      padding-top:20px;
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:1000px){
-
-      .kategori-box{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .produk-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .hero{
-        flex-direction:column;
-        text-align:center;
-      }
-
-      .hero-text{
-        width:100%;
-        margin-bottom:30px;
-      }
-
-      .hero img{
-        width:300px;
-      }
-
-      .search-box{
-        display:none;
-      }
-
-      header{
-        flex-direction:column;
-        gap:20px;
-      }
-    }
-/* TITLE */
-
-.page-title{
-  background:white;
-  padding:50px 40px 20px;
-}
-
-.page-title h1{
-  color:#0047b3;
-  font-size:58px;
-  margin-bottom:10px;
-}
-
-.page-title p{
-  font-size:18px;
-  color:#555;
-}
-
-/* KATEGORI */
-
-.kategori{
-  padding:40px;
-  background:white;
-}
-
-.kategori h2{
-  color:#0047b3;
-  margin-bottom:30px;
-  font-size:34px;
-}
-
-.kategori-menu{
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-}
-
-.kategori-menu button{
-  background:#f5f5f5;
-  border:none;
-  padding:12px 22px;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.kategori-menu button:hover{
-  background:#ffd400;
-}
-
-.kategori-menu .active{
-  background:#0047b3;
-  color:white;
-}
-
-/* PRODUK */
-
-.produk{
-  padding:60px 40px;
-}
-
-.produk-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-.card{
-  background:white;
-  border-radius:10px;
-  padding:20px;
-  border:1px solid #ddd;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-.card-content{
-  padding:0;
-}
-
-.card h3{
-  margin-bottom:15px;
-  font-size:18px;
-}
-
-.card button{
-  background:#ffd400;
-  border:none;
-  padding:10px 20px;
-  border-radius:5px;
-  cursor:pointer;
-  font-weight:bold;
-  width:100%;
-}
-
-/* FOOTER */
-
-footer{
-  background:#0047b3;
-  color:white;
-  padding:40px;
-  margin-top:50px;
-}
-
-.footer-container{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:30px;
-}
-
-footer h3{
-  margin-bottom:15px;
-}
-
-footer p{
-  margin-bottom:10px;
-}
-
-.copyright{
-  text-align:center;
-  margin-top:30px;
-  border-top:1px solid rgba(255,255,255,0.3);
-  padding-top:20px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-
-  .produk-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  header{
-    flex-direction:column;
-    gap:20px;
-  }
-
-  .search-box{
-    width:100%;
-  }
-
-}
-
-@media(max-width:768px){
-
-  .topbar{
-    flex-direction:column;
-    text-align:center;
-    gap:5px;
-  }
-
-  nav ul{
-    flex-direction:column;
-    gap:20px;
-    text-align:center;
-  }
-
-  .page-title h1{
-    font-size:40px;
-  }
-
-  .produk-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-</style>
+  </style>
 </head>
-
 <body>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <p>Selamat datang di Toko SL Plastik</p>
     <p>Buka : Senin - Sabtu (08.00 - 17.00)</p>
   </div>
 
-  <!-- HEADER -->
   <header>
-
     <div class="logo">
-  <img 
-    src="logo.png" 
-    alt="Logo SL Plastik"
-    style="width:90px; height:90px; object-fit:cover; border-radius:50%;"
-  >
-
-  <div class="logo-text">
-    <h1>PLASTIK</h1>
-    <p>SOLUSI PLASTIK ANDA</p>
-  </div>
-
-</div>
-
+      <img src="logo.png" alt="Logo SL Plastik">
+      <div class="logo-text">
+        <h1>SL PLASTIK</h1>
+        <p>SOLUSI PLASTIK ANDA</p>
+      </div>
+    </div>
     <div class="search-box">
-      <input type="text" placeholder="Cari produk plastik...">
-      <button>Cari</button>
+      <input type="text" id="searchInput" placeholder="Cari produk plastik..." onkeydown="handleSearchKey(event)">
+      <button onclick="doSearch()">Cari</button>
     </div>
-
-    <div class="header-menu">
-      <p>WhatsApp</p>
+    <div>
+      <a href="https://wa.me/6285220869625" target="_blank" class="wa-btn">&#128241; WhatsApp</a>
     </div>
-
   </header>
 
-  <!-- NAVBAR -->
   <nav>
     <ul>
       <li><a href="index.html">Beranda</a></li>
-      <li><a href="produk.html">Produk</a></li>
+      <li><a href="produk.html" class="active">Produk</a></li>
       <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="tentang.html#cara-belanja">Cara Belanja</a></li>
+      <li><a href="tentang.html#kontak">Kontak</a></li>
     </ul>
   </nav>
 
-<!-- KATEGORI -->
-
-<section class="kategori">
-
-<h2>Kategori Produk</h2>
-
-<div class="kategori-menu">
-
-<button class="active">Semua</button>
-<button onclick="filterProduk('PP')">Plastik PP</button>
-<button onclick="filterProduk('HD')">Plastik HD</button>
-<button onclick="filterProduk('OPP')">Plastik OPP</button>
-<button onclick="filterProduk('PE')">Plastik PE</button>
-<button onclick="filterProduk('Kantong Plastik')">Kantong Plastik</button>
-
-</div>
-
-</section>
-
-<!-- PRODUK -->
-
-<section class="produk">
-<div class="produk-grid">
-  
-  <div class="card" data-type="HD">
-    <img src="HD 01.jpg">
-  <div class="card-content">
-     <h3>HD 01</h3>
-        <button>Lihat Produk</button>
+  <div class="page-title">
+    <h1>Daftar Produk</h1>
+    <p>Temukan berbagai produk plastik berkualitas pilihan Anda</p>
   </div>
-    </div>
 
-  <div class="card" data-type="HD">
-    <img src="HD hitam 20x30, 25x35, 30x40.jpg">
-  <div class="card-content">
-     <h3>HD HItam</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-  
-  <div class="card" data-type="HD">
-    <img src="HD plong 15-35.jpg">
-  <div class="card-content">
-     <h3>HD Plong</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
+  <div class="result-info" id="resultInfo"></div>
 
-  <div class="card" data-type="HD">
-    <img src="HD sampah 0.040.jpg">
-  <div class="card-content">
-     <h3>HD Sampah 0.040</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
+  <button class="toggle-sidebar-btn" onclick="toggleSidebar()">&#9776; Filter Kategori</button>
 
-  <div class="card" data-type="HD">
-    <img src="HP plong 30 40.jpg">
-  <div class="card-content">
-     <h3>HD Plong</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
+  <div class="main-layout">
 
- <div class="card">
-    <img src="Kertas nasi besar.jpg">
-  <div class="card-content">
-     <h3>Kertas nasi besar</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
- <div class="card" data-type="OPP">
-    <img src="OPP 25.jpg">
-  <div class="card-content">
-     <h3>OPP 25</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="OPP 30 40.jpg">
-  <div class="card-content">
-     <h3>OPP 30 40</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE 10 20.jpg">
-  <div class="card-content">
-     <h3>PE 10 20</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE 12 25.jpg">
-  <div class="card-content">
-     <h3>PE 12 25</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE 15 30.jpg">
-  <div class="card-content">
-     <h3>PE 15 30</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE 20 35.jpg" style="transform: rotate(270deg);">
-  <div class="card-content">
-     <h3>PE 20 35</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE 7 20.jpg">
-  <div class="card-content">
-     <h3>PE 7 20</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE clip 0.04.jpg">
-  <div class="card-content">
-     <h3>PE clip 0.04</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE clip 04.jpg">
-  <div class="card-content">
-     <h3>PE clip 04</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PE clip 30 40 04.jpg">
-  <div class="card-content">
-     <h3>PE clip 04</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="PP 06 #2.jpg">
-  <div class="card-content">
-     <h3>PP 06</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Paper cup 12.jpg">
-  <div class="card-content">
-     <h3>Paper cup 12</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Standing pouch.jpg">
-  <div class="card-content">
-     <h3>Standing pouch</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Tali rafia 1kg.jpg">
-  <div class="card-content">
-     <h3>Tali rafia</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Thinwall 50mL.jpg">
-  <div class="card-content">
-     <h3>Thinwall 50mL</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Thinwall 60mL.jpg">
-  <div class="card-content">
-     <h3>Thinwall 60mL</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Thinwall 100mL.jpg">
-  <div class="card-content">
-     <h3>Thinwall 100mL</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Thinwall 400mL.jpg">
-  <div class="card-content">
-     <h3>Thinwall 400mL</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="Thinwall.jpg">
-  <div class="card-content">
-     <h3>Thinwall</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="cup plastik 200mL.jpg">
-  <div class="card-content">
-     <h3>Cup plastik 200mL</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="gelas cup 14 16 Oz.jpg">
-  <div class="card-content">
-     <h3>Gelas cup 14 16 Oz</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="kresek HD 26.jpg">
-  <div class="card-content">
-     <h3>Kresek HD 26</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="kresek HD 35.jpg">
-  <div class="card-content">
-     <h3>Kresek HD 35</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="lakban 1inc 1cm.jpg">
-  <div class="card-content">
-     <h3>Lakban 1inch 1cm</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="lakban bening 2inch.jpg">
-  <div class="card-content">
-     <h3>Lakban bening 2inch</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="lakban coklat 2inch.jpg">
-  <div class="card-content">
-     <h3>Lakban coklat 2inch</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-   <div class="card">
-    <img src="lakban kertas 1inch.jpg">
-  <div class="card-content">
-     <h3>Lakban kertas 1inch</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-   <div class="card">
-    <img src="mangkok plastik.jpg">
-  <div class="card-content">
-     <h3>Mangkok plastik</h3>
-        <button>Lihat Produk</button>
-  </div>
-   </div>
-
-   <div class="card">
-    <img src="mika burger.jpg">
-  <div class="card-content">
-     <h3>Mika burger</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="mika putih burger.jpg">
-  <div class="card-content">
-     <h3>Mika putih burger</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-  <div class="card">
-    <img src="mika sosis.jpg">
-  <div class="card-content">
-     <h3>Mika sosis</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="paper bowl coklat 500mL 650mL.jpg">
-  <div class="card-content">
-     <h3>Paper bowl</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="piring plastik.jpg">
-  <div class="card-content">
-     <h3>Piring plastik</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="plastik PP 03.jpg">
-  <div class="card-content">
-     <h3>Plastik PP 03</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="plastik PP 10.jpg">
-  <div class="card-content">
-     <h3>Plastik PP 10</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="plastik mika.jpg">
-  <div class="card-content">
-     <h3>Plastik mika</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-    <div class="card">
-    <img src="polymailer.jpg">
-  <div class="card-content">
-     <h3>Polymailer</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-  <div class="card">
-    <img src="sedotan buble.jpg">
-  <div class="card-content">
-     <h3>Sedotan bubble</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-  <div class="card">
-    <img src="sedotan hitam bubble.jpg">
-  <div class="card-content">
-     <h3>Sedotan hitam bubble</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-  
-  <div class="card">
-    <img src="sedotan kertas.png">
-  <div class="card-content">
-     <h3>Sedotan kertas</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-  <div class="card">
-    <img src="sendok garpu plastik.jpg">
-  <div class="card-content">
-     <h3>Sendok garpu plastik</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-  <div class="card">
-    <img src="toples 800mL.jpg">
-  <div class="card-content">
-     <h3>Toples 800mL</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-
-  <div class="card">
-    <img src="tray 18 18.jpg">
-  <div class="card-content">
-     <h3>Tray 18</h3>
-        <button>Lihat Produk</button>
-  </div>
-    </div>
-  
-</div>
-
-</section>
-
- <!-- FOOTER -->
-  <footer>
-
-    <div class="footer-container">
-
-      <div>
-        <h3>SL Plastik</h3>
-        <p>Jl. Leuwi Panjang No.127 A, Kb. Lega, Kec. Bojongloa Kidul,</p>
-        <p>Kota Bandung, Jawa Barat 40233</p>
+    <aside class="sidebar" id="sidebar">
+      <h3>&#128196; Kategori</h3>
+      <div class="kategori-list">
+        <button class="active" onclick="filterProduk('Semua', this)">Semua Produk</button>
+        <button onclick="filterProduk('PP', this)">Plastik PP</button>
+        <button onclick="filterProduk('HD', this)">Plastik HD</button>
+        <button onclick="filterProduk('OPP', this)">Plastik OPP</button>
+        <button onclick="filterProduk('PE', this)">Plastik PE</button>
+        <button onclick="filterProduk('Kantong', this)">Kantong Plastik</button>
+        <button onclick="filterProduk('Mika', this)">Mika &amp; Kemasan</button>
+        <button onclick="filterProduk('Thinwall', this)">Thinwall &amp; Cup</button>
+        <button onclick="filterProduk('Lakban', this)">Lakban &amp; Perekat</button>
+        <button onclick="filterProduk('Lainnya', this)">Lainnya</button>
       </div>
-
-      <div>
-        <h3>Kontak</h3>
-        <p>WhatsApp : 0852-2086-9625</p>
+      <div class="sidebar-wa">
+        <p>Tidak menemukan produk yang Anda cari?</p>
+        <a href="https://wa.me/6285220869625" target="_blank">&#128241; Tanya via WhatsApp</a>
       </div>
+    </aside>
 
-      <div>
-        <h3>Sosial Media</h3>
-        <p>Instagram : dani_sl_plastik</p>
-      </div>
+    <div class="konten">
+      <p class="produk-count">Menampilkan <strong id="countNum">0</strong> produk</p>
 
-    </div>
+      <div class="produk-grid" id="produkGrid">
 
-    <div class="copyright">
-      <p>© 2026 SL Plastik. All Rights Reserved.</p>
-    </div>
+        <div class="card" data-type="HD" data-nama="HD 01">
+          <img src="HD 01.jpg" alt="HD 01" onerror="this.src='https://via.placeholder.com/300x200?text=HD+01'">
+          <div class="card-content"><span class="card-badge">HD</span><h3>HD 01</h3><button onclick="hubungiWA('HD 01')">Hubungi Kami</button></div>
+        </div>
 
-  </footer>
+        <div class="card" data-type="HD" data-nama="HD Hitam">
+          <img src="HD hitam 20x30, 25x35, 30x40.jpg" alt="HD Hitam" onerror="this.src='https://via.placeholder.com/300x200?text=HD+Hitam'">
+          <div class="card-content"><span class="card-badge">HD</span><h3>HD Hitam</h3><button onclick="hubungiWA('HD Hitam')">Hubungi Kami</button></div>
+        </div>
 
-</body>
-</html>
+        <div class="card" data-type="HD" data-nama="HD Plong 15-35">
+          <img src="HD plong 15-35.jpg" alt="HD Plong" onerror="this.src='https://via.placeholder.com/300x200?text=HD+Plong'">
+          <div class="card-content"><span class="card-badge">HD</span><h3>HD Plong 15-35</h3><button onclick="hubungiWA('HD Plong 15-35')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="HD" data-nama="HD Sampah 0.040">
+          <img src="HD sampah 0.040.jpg" alt="HD Sampah" onerror="this.src='https://via.placeholder.com/300x200?text=HD+Sampah'">
+          <div class="card-content"><span class="card-badge">HD</span><h3>HD Sampah 0.040</h3><button onclick="hubungiWA('HD Sampah 0.040')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="HD" data-nama="HD Plong 30x40">
+          <img src="HP plong 30 40.jpg" alt="HD Plong 30x40" onerror="this.src='https://via.placeholder.com/300x200?text=HD+Plong+30x40'">
+          <div class="card-content"><span class="card-badge">HD</span><h3>HD Plong 30x40</h3><button onclick="hubungiWA('HD Plong 30x40')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Kantong" data-nama="Kresek HD 26">
+          <img src="kresek HD 26.jpg" alt="Kresek HD 26" onerror="this.src='https://via.placeholder.com/300x200?text=Kresek+HD+26'">
+          <div class="card-content"><span class="card-badge">Kantong</span><h3>Kresek HD 26</h3><button onclick="hubungiWA('Kresek HD 26')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Kantong" data-nama="Kresek HD 35">
+          <img src="kresek HD 35.jpg" alt="Kresek HD 35" onerror="this.src='https://via.placeholder.com/300x200?text=Kresek+HD+35'">
+          <div class="card-content"><span class="card-badge">Kantong</span><h3>Kresek HD 35</h3><button onclick="hubungiWA('Kresek HD 35')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="OPP" data-nama="OPP 25">
+          <img src="OPP 25.jpg" alt="OPP 25" onerror="this.src='https://via.placeholder.com/300x200?text=OPP+25'">
+          <div class="card-content"><span class="card-badge">OPP</span><h3>OPP 25</h3><button onclick="hubungiWA('OPP 25')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="OPP" data-nama="OPP 30x40">
+          <img src="OPP 30 40.jpg" alt="OPP 30 40" onerror="this.src='https://via.placeholder.com/300x200?text=OPP+30x40'">
+          <div class="card-content"><span class="card-badge">OPP</span><h3>OPP 30x40</h3><button onclick="hubungiWA('OPP 30x40')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE 7x20">
+          <img src="PE 7 20.jpg" alt="PE 7 20" onerror="this.src='https://via.placeholder.com/300x200?text=PE+7x20'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE 7x20</h3><button onclick="hubungiWA('PE 7x20')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE 10x20">
+          <img src="PE 10 20.jpg" alt="PE 10 20" onerror="this.src='https://via.placeholder.com/300x200?text=PE+10x20'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE 10x20</h3><button onclick="hubungiWA('PE 10x20')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE 12x25">
+          <img src="PE 12 25.jpg" alt="PE 12 25" onerror="this.src='https://via.placeholder.com/300x200?text=PE+12x25'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE 12x25</h3><button onclick="hubungiWA('PE 12x25')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE 15x30">
+          <img src="PE 15 30.jpg" alt="PE 15 30" onerror="this.src='https://via.placeholder.com/300x200?text=PE+15x30'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE 15x30</h3><button onclick="hubungiWA('PE 15x30')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE 20x35">
+          <img src="PE 20 35.jpg" alt="PE 20 35" onerror="this.src='https://via.placeholder.com/300x200?text=PE+20x35'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE 20x35</h3><button onclick="hubungiWA('PE 20x35')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE Clip 0.04">
+          <img src="PE clip 0.04.jpg" alt="PE Clip 0.04" onerror="this.src='https://via.placeholder.com/300x200?text=PE+Clip+0.04'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE Clip 0.04</h3><button onclick="hubungiWA('PE Clip 0.04')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE Clip 04">
+          <img src="PE clip 04.jpg" alt="PE Clip 04" onerror="this.src='https://via.placeholder.com/300x200?text=PE+Clip+04'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE Clip 04</h3><button onclick="hubungiWA('PE Clip 04')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PE" data-nama="PE Clip 30x40 04">
+          <img src="PE clip 30 40 04.jpg" alt="PE Clip 30x40" onerror="this.src='https://via.placeholder.com/300x200?text=PE+Clip+30x40'">
+          <div class="card-content"><span class="card-badge">PE</span><h3>PE Clip 30x40 04</h3><button onclick="hubungiWA('PE Clip 30x40')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PP" data-nama="Plastik PP 03">
+          <img src="plastik PP 03.jpg" alt="Plastik PP 03" onerror="this.src='https://via.placeholder.com/300x200?text=PP+03'">
+          <div class="card-content"><span class="card-badge">PP</span><h3>Plastik PP 03</h3><button onclick="hubungiWA('Plastik PP 03')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PP" data-nama="Plastik PP 06">
+          <img src="PP 06 #2.jpg" alt="PP 06" onerror="this.src='https://via.placeholder.com/300x200?text=PP+06'">
+          <div class="card-content"><span class="card-badge">PP</span><h3>Plastik PP 06</h3><button onclick="hubungiWA('Plastik PP 06')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PP" data-nama="Plastik PP 10">
+          <img src="plastik PP 10.jpg" alt="Plastik PP 10" onerror="this.src='https://via.placeholder.com/300x200?text=PP+10'">
+          <div class="card-content"><span class="card-badge">PP</span><h3>Plastik PP 10</h3><button onclick="hubungiWA('Plastik PP 10')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="PP" data-nama="Plastik Mika">
+          <img src="plastik mika.jpg" alt="Plastik Mika" onerror="this.src='https://via.placeholder.com/300x200?text=Plastik+Mika'">
+          <div class="card-content"><span class="card-badge">PP</span><h3>Plastik Mika</h3><button onclick="hubungiWA('Plastik Mika')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Mika" data-nama="Mika Burger">
+          <img src="mika burger.jpg" alt="Mika Burger" onerror="this.src='https://via.placeholder.com/300x200?text=Mika+Burger'">
+          <div class="card-content"><span class="card-badge">Mika</span><h3>Mika Burger</h3><button onclick="hubungiWA('Mika Burger')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Mika" data-nama="Mika Putih Burger">
+          <img src="mika putih burger.jpg" alt="Mika Putih Burger" onerror="this.src='https://via.placeholder.com/300x200?text=Mika+Putih'">
+          <div class="card-content"><span class="card-badge">Mika</span><h3>Mika Putih Burger</h3><button onclick="hubungiWA('Mika Putih Burger')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Mika" data-nama="Mika Sosis">
+          <img src="mika sosis.jpg" alt="Mika Sosis" onerror="this.src='https://via.placeholder.com/300x200?text=Mika+Sosis'">
+          <div class="card-content"><span class="card-badge">Mika</span><h3>Mika Sosis</h3><button onclick="hubungiWA('Mika Sosis')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Mika" data-nama="Standing Pouch">
+          <img src="Standing pouch.jpg" alt="Standing Pouch" onerror="this.src='https://via.placeholder.com/300x200?text=Standing+Pouch'">
+          <div class="card-content"><span class="card-badge">Mika</span><h3>Standing Pouch</h3><button onclick="hubungiWA('Standing Pouch')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Mika" data-nama="Polymailer">
+          <img src="polymailer.jpg" alt="Polymailer" onerror="this.src='https://via.placeholder.com/300x200?text=Polymailer'">
+          <div class="card-content"><span class="card-badge">Mika</span><h3>Polymailer</h3><button onclick="hubungiWA('Polymailer')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Thinwall 50mL">
+          <img src="Thinwall 50mL.jpg" alt="Thinwall 50mL" onerror="this.src='https://via.placeholder.com/300x200?text=Thinwall+50mL'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Thinwall 50mL</h3><button onclick="hubungiWA('Thinwall 50mL')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Thinwall 60mL">
+          <img src="Thinwall 60mL.jpg" alt="Thinwall 60mL" onerror="this.src='https://via.placeholder.com/300x200?text=Thinwall+60mL'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Thinwall 60mL</h3><button onclick="hubungiWA('Thinwall 60mL')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Thinwall 100mL">
+          <img src="Thinwall 100mL.jpg" alt="Thinwall 100mL" onerror="this.src='https://via.placeholder.com/300x200?text=Thinwall+100mL'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Thinwall 100mL</h3><button onclick="hubungiWA('Thinwall 100mL')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Thinwall 400mL">
+          <img src="Thinwall 400mL.jpg" alt="Thinwall 400mL" onerror="this.src='https://via.placeholder.com/300x200?text=Thinwall+400mL'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Thinwall 400mL</h3><button onclick="hubungiWA('Thinwall 400mL')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Thinwall">
+          <img src="Thinwall.jpg" alt="Thinwall" onerror="this.src='https://via.placeholder.com/300x200?text=Thinwall'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Thinwall</h3><button onclick="hubungiWA('Thinwall')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Cup Plastik 200mL">
+          <img src="cup plastik 200mL.jpg" alt="Cup Plastik 200mL" onerror="this.src='https://via.placeholder.com/300x200?text=Cup+Plastik'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Cup Plastik 200mL</h3><button onclick="hubungiWA('Cup Plastik 200mL')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Gelas Cup 14 16 Oz">
+          <img src="gelas cup 14 16 Oz.jpg" alt="Gelas Cup" onerror="this.src='https://via.placeholder.com/300x200?text=Gelas+Cup'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Gelas Cup 14/16 Oz</h3><button onclick="hubungiWA('Gelas Cup 14/16 Oz')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Paper Cup 12">
+          <img src="Paper cup 12.jpg" alt="Paper Cup 12" onerror="this.src='https://via.placeholder.com/300x200?text=Paper+Cup'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Paper Cup 12</h3><button onclick="hubungiWA('Paper Cup 12')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Paper Bowl 500mL 650mL">
+          <img src="paper bowl coklat 500mL 650mL.jpg" alt="Paper Bowl" onerror="this.src='https://via.placeholder.com/300x200?text=Paper+Bowl'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Paper Bowl 500/650mL</h3><button onclick="hubungiWA('Paper Bowl')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Mangkok Plastik">
+          <img src="mangkok plastik.jpg" alt="Mangkok Plastik" onerror="this.src='https://via.placeholder.com/300x200?text=Mangkok+Plastik'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Mangkok Plastik</h3><button onclick="hubungiWA('Mangkok Plastik')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Piring Plastik">
+          <img src="piring plastik.jpg" alt="Piring Plastik" onerror="this.src='https://via.placeholder.com/300x200?text=Piring+Plastik'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Piring Plastik</h3><button onclick="hubungiWA('Piring Plastik')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Toples 800mL">
+          <img src="toples 800mL.jpg" alt="Toples 800mL" onerror="this.src='https://via.placeholder.com/300x200?text=Toples+800mL'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Toples 800mL</h3><button onclick="hubungiWA('Toples 800mL')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Thinwall" data-nama="Tray 18x18">
+          <img src="tray 18 18.jpg" alt="Tray 18" onerror="this.src='https://via.placeholder.com/300x200?text=Tray+18'">
+          <div class="card-content"><span class="card-badge">Thinwall</span><h3>Tray 18x18</h3><button onclick="hubungiWA('Tray 18x18')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Lakban" data-nama="Lakban 1inch 1cm">
+          <img src="lakban 1inc 1cm.jpg" alt="Lakban 1inch" onerror="this.src='https://via.placeholder.com/300x200?text=Lakban+1inch'">
+          <div class="card-content"><span class="card-badge">Lakban</span><h3>Lakban 1inch 1cm</h3><button onclick="hubungiWA('Lakban 1inch 1cm')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Lakban" data-nama="Lakban Bening 2inch">
+          <img src="lakban bening 2inch.jpg" alt="Lakban Bening" onerror="this.src='https://via.placeholder.com/300x200?text=Lakban+Bening'">
+          <div class="card-content"><span class="card-badge">Lakban</span><h3>Lakban Bening 2inch</h3><button onclick="hubungiWA('Lakban Bening 2inch')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Lakban" data-nama="Lakban Coklat 2inch">
+          <img src="lakban coklat 2inch.jpg" alt="Lakban Coklat" onerror="this.src='https://via.placeholder.com/300x200?text=Lakban+Coklat'">
+          <div class="card-content"><span class="card-badge">Lakban</span><h3>Lakban Coklat 2inch</h3><button onclick="hubungiWA('Lakban Coklat 2inch')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Lakban" data-nama="Lakban Kertas 1inch">
+          <img src="lakban kertas 1inch.jpg" alt="Lakban Kertas" onerror="this.src='https://via.placeholder.com/300x200?text=Lakban+Kertas'">
+          <div class="card-content"><span class="card-badge">Lakban</span><h3>Lakban Kertas 1inch</h3><button onclick="hubungiWA('Lakban Kertas 1inch')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Lainnya" data-nama="Kertas Nasi Besar">
+          <img src="Kertas nasi besar.jpg" alt="Kertas Nasi" onerror="this.src='https://via.placeholder.com/300x200?text=Kertas+Nasi'">
+          <div class="card-content"><span class="card-badge">Lainnya</span><h3>Kertas Nasi Besar</h3><button onclick="hubungiWA('Kertas Nasi Besar')">Hubungi Kami</button></div>
+        </div>
+
+        <div class="card" data-type="Lainnya" data-nama="Tali Rafia 1kg">
+          <img src="Tali rafia 1kg.jpg" alt="Tali Rafia" onerror="this.src='https://via.placeholder.com/300x200?text=Tali+Rafia'"> 
