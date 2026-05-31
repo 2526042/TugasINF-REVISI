@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Kami - SL Plastik</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    .topbar {
+      background: #ffd400;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    header {
+      background: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #0047b3;
+    }
+
+    .logo-text h1 { color: #0047b3; font-size: 34px; }
+    .logo-text p { color: red; font-size: 13px; font-weight: bold; }
+
+    .search-box { display: flex; width: 40%; }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      font-size: 15px;
+    }
+
+    .search-box button {
+      padding: 12px 18px;
+      border: none;
+      background: #ffd400;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav {
+      background: #0047b3;
+      padding: 15px 40px;
+    }
+
+    nav ul { display: flex; list-style: none; gap: 40px; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #ffd400; }
+
+    nav a.active {
+      color: #ffd400;
+      border-bottom: 2px solid #ffd400;
+      padding-bottom: 2px;
+    }
+
+    .page-title {
+      background: #0047b3;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .page-title h1 { color: white; font-size: 42px; margin-bottom: 10px; }
+    .page-title p { font-size: 17px; color: rgba(255,255,255,0.85); }
+
+    /* TENTANG SECTION */
+    .tentang-section {
+      padding: 60px 40px;
+      background: white;
+    }
+
+    .tentang-inner {
+      display: flex;
+      gap: 50px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tentang-img {
+      flex: 0 0 360px;
+    }
+
+    .tentang-img img {
+      width: 100%;
+      border-radius: 14px;
+      border: 4px solid #ffd400;
+      object-fit: cover;
+    }
+
+    .tentang-teks { flex: 1; min-width: 280px; }
+
+    .tentang-teks h2 {
+      color: #0047b3;
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .tentang-teks p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .info-grid {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .info-item {
+      background: #f5f5f5;
+      border-left: 4px solid #ffd400;
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+
+    .info-item h4 { color: #0047b3; font-size: 14px; margin-bottom: 5px; }
+    .info-item p { font-size: 14px; color: #333; margin: 0; line-height: 1.5; }
+    .info-item a { color: #0047b3; text-decoration: none; }
+    .info-item a:hover { text-decoration: underline; }
+
+    /* KEUNGGULAN */
+    .keunggulan {
+      background: #f5f5f5;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .keunggulan h2 {
+      color: #0047b3;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .keunggulan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .keunggulan-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 20px;
+      border: 1px solid #ddd;
+      transition: 0.3s;
+    }
+
+    .keunggulan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-color: #ffd400;
+    }
+
+    .keunggulan-card .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .keunggulan-card h3 {
+      color: #0047b3;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .keunggulan-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* CARA BELANJA */
+    #cara-belanja {
+      background: white;
+      padding: 60px 40px;
+    }
+
+    #cara-belanja h2 {
+      text-align: center;
+      color: #0047b3;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .cara-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cara-card {
+      text-align: center;
+      padding: 30px 20px;
+      background: #f5f5f5;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .cara-card:hover {
+      border-color: #0047b3;
+      background: #e8f0fe;
+    }
+
+    .cara-card .nomor {
+      width: 50px;
+      height: 50px;
+      background: #0047b3;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .cara-card h3 {
+      color: #0047b3;
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .cara-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .cara-card .icon { font-size: 32px; margin-bottom: 12px; display: block; }
+
+    /* JAM OPERASIONAL */
+    .jam-section {
+      background: #0047b3;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .jam-section h2 { color: #ffd400; font-size: 30px; margin-bottom: 30px; }
+
+    .jam-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .jam-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 20px 30px;
+      color: white;
+      min-width: 180px;
+    }
+
+    .jam-item h4 { color: #ffd400; font-size: 14px; margin-bottom: 8px; }
+    .jam-item p { font-size: 18px; font-weight: bold; }
+
+    /* KONTAK */
+    #kontak {
+      background: #f5f5f5;
+      padding: 60px 40px;
+    }
+
+    #kontak h2 {
+      text-align: center;
+      color: #0047b3;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .kontak-wrapper {
+      display: flex;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .kontak-info {
+      flex: 1;
+      min-width: 260px;
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      border: 1px solid #ddd;
+    }
+
+    .kontak-info h3 {
+      color: #0047b3;
+      font-size: 20px;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #ffd400;
+    }
+
+    .kontak-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .kontak-row .ikon {
+      font-size: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .kontak-row h4 { color: #0047b3; font-size: 14px; margin-bottom: 4px; }
+    .kontak-row p, .kontak-row a {
+      font-size: 15px;
+      color: #333;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    .kontak-row a:hover { color: #0047b3; }
+
+    .kontak-form {
+      flex: 1;
+      min-width: 260px;
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      border: 1px solid #ddd;
+    }
+
+    .kontak-form h3 {
+      color: #0047b3;
+      font-size: 20px;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #ffd400;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
+      color: #444;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 15px;
+      transition: border-color 0.2s;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #0047b3;
+    }
+
+    .form-group textarea { height: 120px; resize: vertical; }
+
+    .btn-kirim {
+      background: #0047b3;
+      color: white;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+
+    .btn-kirim:hover { background: #003399; }
+
+    .btn-wa-kirim {
+      display: block;
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .btn-wa-kirim:hover { background: #1ebe5d; }
+
+    /* MAPS */
+    .maps-section iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0047b3;
+      color: white;
+      padding: 40px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    footer h3 { margin-bottom: 15px; font-size: 18px; color: #ffd400; }
+    footer p { margin-bottom: 10px; font-size: 14px; opacity: 0.9; }
+    footer a { color: white; text-decoration: none; opacity: 0.9; }
+    footer a:hover { color: #ffd400; }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 20px;
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      header { flex-direction: column; gap: 20px; }
+      .search-box { width: 100%; }
+      .tentang-img { flex: 0 0 100%; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar { flex-direction: column; text-align: center; gap: 5px; }
+      nav ul { flex-wrap: wrap; gap: 15px; justify-content: center; }
+      .page-title h1 { font-size: 32px; }
+      .tentang-section { padding: 40px 20px; }
+      #cara-belanja, .keunggulan, #kontak, .jam-section { padding: 40px 20px; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <p>Selamat datang di Toko SL Plastik</p>
+    <p>Buka : Senin - Sabtu (08.00 - 17.00)</p>
+  </div>
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo SL Plastik" onerror="this.style.display='none'">
+      <div class="logo-text">
+        <h1>SL PLASTIK</h1>
+        <p>SOLUSI PLASTIK ANDA</p>
+      </div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari produk plastik..." onkeydown="if(event.key==='Enter') goSearch()">
+      <button onclick="goSearch()">Cari</button>
+    </div>
+    <div>
+      <a href="https://wa.me/6285220869625" target="_blank" class="wa-btn">&#128241; WhatsApp</a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="produk.html">Produk</a></li>
+      <li><a href="tentang.html" class="active">Tentang Kami</a></li>
+      <li><a href="#cara-belanja">Cara Belanja</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="page-title">
+    <h1>Tentang Kami</h1>
+    <p>Mengenal lebih dekat Toko SL Plastik — solusi kebutuhan plastik Anda</p>
+  </div>
+
+  <!-- TENTANG TOKO -->
+  <section class="tentang-section">
+    <div class="tentang-inner">
+      <div class="tentang-img">
+        <img src="Screenshot 2026-05-31 194349.png" alt="Toko SL Plastik" onerror="this.src='https://via.placeholder.com/360x280?text=SL+Plastik'">
+      </div>
+      <div class="tentang-teks">
+        <h2>Toko SL Plastik</h2>
+        <p>
+          SL Plastik adalah toko yang menyediakan berbagai jenis produk plastik berkualitas untuk kebutuhan rumah tangga, bisnis kuliner, pengiriman, dan industri. Kami menjual berbagai jenis plastik seperti HD, PP, OPP, PE, plastik mika, kertas nasi, thinwall, mangkok, piring, sendok garpu, sedotan, toples, tray, lakban, tali rafia, dan banyak lagi.
+        </p>
+        <p>
+          Toko kami berlokasi di Jl. Leuwi Panjang No.127 A, Kebonlega, Kecamatan Bojongloa Kidul, Kota Bandung, Jawa Barat. Kami melayani pembelian langsung di toko maupun pemesanan via WhatsApp.
+        </p>
+        <div class="info-grid">
+          <div class="info-item">
+            <h4>&#128197; Jam Operasional</h4>
+            <p>Senin – Sabtu<br>08.00 – 17.00 WIB</p>
+          </div>
+          <div class="info-item">
+            <h4>&#128205; Lokasi</h4>
+            <p>Jl. Leuwi Panjang No.127 A, Bandung</p>
+          </div>
+          <div class="info-item">
+            <h4>&#128241; WhatsApp</h4>
+            <p><a href="https://wa.me/6285220869625" target="_blank">0852-2086-9625</a></p>
+          </div>
+          <div class="info-item">
+            <h4>&#128247; Instagram</h4>
+            <p><a href="https://instagram.com/dani_sl_plastik" target="_blank">@dani_sl_plastik</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEUNGGULAN -->
+  <section class="keunggulan">
+    <h2>Mengapa Pilih SL Plastik?</h2>
+    <div class="keunggulan-grid">
+      <div class="keunggulan-card">
+        <span class="icon">&#9989;</span>
+        <h3>Produk Berkualitas</h3>
+        <p>Kami menyediakan produk plastik berkualitas dengan berbagai pilihan ukuran dan spesifikasi sesuai kebutuhan Anda.</p>
+      </div>
+      <div class="keunggulan-card">
+        <span class="icon">&#128176;</span>
+        <h3>Harga Terjangkau</h3>
+        <p>Harga kompetitif langsung dari toko tanpa perantara, cocok untuk pembelian eceran maupun grosir.</p>
+      </div>
+      <div class="keunggulan-card">
+        <span class="icon">&#128230;</span>
+        <h3>Pilihan Lengkap</h3>
+        <p>Tersedia berbagai jenis plastik: HD, PP, OPP, PE, mika, thinwall, lakban, kertas nasi, sedotan, dan masih banyak lagi.</p>
+      </div>
+      <div class="keunggulan-card">
+        <span class="icon">&#128242;</span>
+        <h3>Mudah Dipesan</h3>
+        <p>Pemesanan bisa langsung datang ke toko atau pesan via WhatsApp kapan saja. Kami siap membantu Anda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA BELANJA -->
+  <section id="cara-belanja">
+    <h2>Cara Belanja</h2>
+    <div class="cara-grid">
+      <div class="cara-card">
+        <div class="nomor">1</div>
+        <span class="icon">&#128269;</span>
+        <h3>Pilih Produk</h3>
+        <p>Cari produk yang Anda butuhkan di halaman produk atau tanyakan langsung kepada kami via WhatsApp.</p>
+      </div>
+      <div class="cara-card">
+        <div class="nomor">2</div>
+        <span class="icon">&#128241;</span>
+        <h3>Hubungi via WhatsApp</h3>
+        <p>Klik tombol "Hubungi Kami" atau chat WhatsApp ke 0852-2086-9625 dengan menyebutkan nama produk dan jumlah.</p>
+      </div>
+      <div class="cara-card">
+        <div class="nomor">3</div>
+        <span class="icon">&#128203;</span>
+        <h3>Konfirmasi Pesanan</h3>
+        <p>Kami akan mengkonfirmasi ketersediaan produk, harga, dan informasi pengambilan atau pengiriman.</p>
+      </div>
+      <div class="cara-card">
+        <div class="nomor">4</div>
+        <span class="icon">&#128717;</span>
+        <h3>Ambil / Kirim</h3>
+        <p>Ambil langsung di toko kami di Jl. Leuwi Panjang No.127 A Bandung, atau diskusikan opsi pengiriman dengan kami.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAM OPERASIONAL -->
+  <section class="jam-section">
+    <h2>&#128336; Jam Operasional Toko</h2>
+    <div class="jam-grid">
+      <div class="jam-item">
+        <h4>HARI</h4>
+        <p>Senin – Sabtu</p>
+      </div>
+      <div class="jam-item">
+        <h4>JAM BUKA</h4>
+        <p>08.00 WIB</p>
+      </div>
+      <div class="jam-item">
+        <h4>JAM TUTUP</h4>
+        <p>17.00 WIB</p>
+      </div>
+      <div class="jam-item">
+        <h4>HARI LIBUR</h4>
+        <p>Minggu &amp; Hari Raya</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <div class="kontak-wrapper">
+
+      <div class="kontak-info">
+        <h3>&#128205; Informasi Toko</h3>
+
+        <div class="kontak-row">
+          <span class="ikon">&#127968;</span>
+          <div>
+            <h4>Alamat Toko</h4>
+            <p>Jl. Leuwi Panjang No.127 A,<br>Kebonlega, Kec. Bojongloa Kidul,<br>Kota Bandung, Jawa Barat 40233</p>
+          </div>
+        </div>
+
+        <div class="kontak-row">
+          <span class="ikon">&#128241;</span>
+          <div>
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/6285220869625" target="_blank">0852-2086-9625</a>
+          </div>
+        </div>
+
+        <div class="kontak-row">
+          <span class="ikon">&#128247;</span>
+          <div>
+            <h4>Instagram</h4>
+            <a href="https://instagram.com/dani_sl_plastik" target="_blank">@dani_sl_plastik</a>
+          </div>
+        </div>
+
+        <div class="kontak-row">
+          <span class="ikon">&#128336;</span>
+          <div>
+            <h4>Jam Buka</h4>
+            <p>Senin – Sabtu: 08.00 – 17.00 WIB<br>Minggu &amp; Hari Raya: Tutup</p>
+          </div>
+        </div>
+
+        <br>
+        <a href="https://wa.me/6285220869625" target="_blank" class="btn-wa-kirim">
+          &#128241; Chat WhatsApp Sekarang
+        </a>
+      </div>
+
+      <div class="kontak-form">
+        <h3>&#128203; Kirim Pesan</h3>
+        <p style="font-size:14px; color:#777; margin-bottom:20px;">Isi form di bawah dan kami akan menghubungi Anda via WhatsApp.</p>
+
+        <div class="form-group">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" placeholder="Masukkan nama Anda">
+        </div>
+
+        <div class="form-group">
+          <label for="nohp">Nomor WhatsApp</label>
+          <input type="tel" id="nohp" placeholder="Contoh: 08123456789">
+        </div>
+
+        <div class="form-group">
+          <label for="produkTanya">Produk yang Ditanyakan</label>
+          <select id="produkTanya">
+            <option value="">-- Pilih Kategori --</option>
+            <option value="Plastik HD">Plastik HD</option>
+            <option value="Plastik PP">Plastik PP</option>
+            <option value="Plastik OPP">Plastik OPP</option>
+            <option value="Plastik PE">Plastik PE</option>
+            <option value="Kantong Plastik / Kresek">Kantong Plastik / Kresek</option>
+            <option value="Mika & Kemasan">Mika &amp; Kemasan</option>
+            <option value="Thinwall & Cup">Thinwall &amp; Cup</option>
+            <option value="Lakban & Perekat">Lakban &amp; Perekat</option>
+            <option value="Sedotan & Sendok">Sedotan &amp; Sendok</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pesan">Pesan / Pertanyaan</label>
+          <textarea id="pesan" placeholder="Tulis pesan atau pertanyaan Anda di sini..."></textarea>
+        </div>
+
+        <button class="btn-kirim" onclick="kirimPesanWA()">Kirim via WhatsApp</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAPS -->
+  <div class="maps-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7461820764!2d107.5888!3d-6.9477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9cb6e7b8c5f%3A0x1a2b3c4d5e6f7a8b!2sJl.%20Leuwi%20Panjang%20No.127%20A%2C%20Kota%20Bandung!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Lokasi SL Plastik di Google Maps">
+    </iframe>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>SL Plastik</h3>
+        <p>Jl. Leuwi Panjang No.127 A, Kb. Lega,</p>
+        <p>Kec. Bojongloa Kidul, Kota Bandung,</p>
+        <p>Jawa Barat 40233</p>
+      </div>
+      <div>
+        <h3>Kontak</h3>
+        <p><a href="https://wa.me/6285220869625" target="_blank">WhatsApp : 0852-2086-9625</a></p>
+        <p><a href="https://instagram.com/dani_sl_plastik" target="_blank">Instagram : @dani_sl_plastik</a></p>
+      </div>
+      <div>
+        <h3>Jam Buka</h3>
+        <p>Senin – Sabtu</p>
+        <p>08.00 – 17.00 WIB</p>
+      </div>
+      <div>
+        <h3>Navigasi</h3>
+        <p><a href="index.html">Beranda</a></p>
+        <p><a href="produk.html">Produk</a></p>
+        <p><a href="tentang.html">Tentang Kami</a></p>
+        <p><a href="#cara-belanja">Cara Belanja</a></p>
+        <p><a href="#kontak">Kontak</a></p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2026 SL Plastik. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function goSearch() {
+      const q = document.getElementById('searchInput').value.trim();
+      if (q) {
+        window.location.href = 'produk.html?cari=' + encodeURIComponent(q);
+      } else {
+        window.location.href = 'produk.html';
+      }
+    }
+
+    function kirimPesanWA() {
+      const nama = document.getElementById('nama').value.trim();
+      const nohp = document.getElementById('nohp').value.trim();
+      const produk = document.getElementById('produkTanya').value;
+      const pesan = document.getElementById('pesan').value.trim();
+
+      if (!nama || !pesan) {
+        alert('Mohon isi nama dan pesan terlebih dahulu.');
+        return;
+      }
+
+      let teks = 'Halo SL Plastik, saya ingin menanyakan:\n\n';
+      teks += 'Nama: ' + nama + '\n';
+      if (nohp) teks += 'No. HP: ' + nohp + '\n';
+      if (produk) teks += 'Produk: ' + produk + '\n';
+      teks += 'Pesan: ' + pesan;
+
+      window.open('https://wa.me/6285220869625?text=' + encodeURIComponent(teks), '_blank');
+    }
+  </script>
+
+</body>
+</html>
