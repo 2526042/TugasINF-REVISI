@@ -544,9 +544,7 @@ footer p{
     <ul>
       <li><a href="index.html">Beranda</a></li>
       <li><a href="produk.html">Produk</a></li>
-      <li><a href="#">Tentang Kami</a></li>
-      <li><a href="#">Cara Belanja</a></li>
-      <li><a href="#">Kontak</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
     </ul>
   </nav>
 
@@ -561,9 +559,9 @@ footer p{
 <button class="active">Semua</button>
 <button onclick="filterProduk('PP')">Plastik PP</button>
 <button onclick="filterProduk('HD')">Plastik HD</button>
-<button>Plastik OPP</button>
-<button>Plastik PE</button>
-<button>Kantong Plastik</button>
+<button onclick="filterProduk('OPP')">Plastik OPP</button>
+<button onclick="filterProduk('PE')">Plastik PE</button>
+<button onclick="filterProduk('Kantong Plastik')">Kantong Plastik</button>
 
 </div>
 
@@ -582,7 +580,7 @@ footer p{
   </div>
     </div>
 
-  <div class="card">
+  <div class="card" data-type="HD">
     <img src="HD hitam 20x30, 25x35, 30x40.jpg">
   <div class="card-content">
      <h3>HD HItam</h3>
@@ -590,7 +588,7 @@ footer p{
   </div>
     </div>
   
-  <div class="card">
+  <div class="card" data-type="HD">
     <img src="HD plong 15-35.jpg">
   <div class="card-content">
      <h3>HD Plong</h3>
@@ -598,7 +596,7 @@ footer p{
   </div>
     </div>
 
-  <div class="card">
+  <div class="card" data-type="HD">
     <img src="HD sampah 0.040.jpg">
   <div class="card-content">
      <h3>HD Sampah 0.040</h3>
@@ -606,7 +604,7 @@ footer p{
   </div>
     </div>
 
-  <div class="card">
+  <div class="card" data-type="HD">
     <img src="HP plong 30 40.jpg">
   <div class="card-content">
      <h3>HD Plong</h3>
@@ -622,7 +620,7 @@ footer p{
   </div>
     </div>
 
- <div class="card">
+ <div class="card" data-type="OPP">
     <img src="OPP 25.jpg">
   <div class="card-content">
      <h3>OPP 25</h3>
