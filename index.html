@@ -4,503 +4,517 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SL Plastik</title>
-
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    body{
-      background:#f5f5f5;
-      color:#222;
+    body {
+      background: #f5f5f5;
+      color: #222;
     }
 
-    /* TOP BAR */
-    .topbar{
-      background:#ffd400;
-      padding:10px 40px;
-      display:flex;
-      justify-content:space-between;
-      font-size:14px;
+    .topbar {
+      background: #ffd400;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    /* HEADER */
-    header{
-      background:white;
-      padding:20px 40px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    header {
+      background: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .logo-circle{
-      width:60px;
-      height:60px;
-      border:4px solid #0047b3;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      font-weight:bold;
-      color:red;
+    .logo img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #0047b3;
     }
 
-    .logo-text h1{
-      color:#0047b3;
-      font-size:34px;
+    .logo-text h1 {
+      color: #0047b3;
+      font-size: 34px;
     }
 
-    .logo-text p{
-      color:red;
-      font-size:13px;
+    .logo-text p {
+      color: red;
+      font-size: 13px;
+      font-weight: bold;
     }
 
-    .search-box{
-      display:flex;
-      width:40%;
+    .search-box {
+      display: flex;
+      width: 40%;
     }
 
-    .search-box input{
-      width:100%;
-      padding:12px;
-      border:1px solid #ccc;
-      border-right:none;
-      border-radius:5px 0 0 5px;
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      font-size: 15px;
     }
 
-    .search-box button{
-      padding:12px 18px;
-      border:none;
-      background:#ffd400;
-      cursor:pointer;
-      border-radius:0 5px 5px 0;
-      font-weight:bold;
+    .search-box button {
+      padding: 12px 18px;
+      border: none;
+      background: #ffd400;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      font-weight: bold;
+      font-size: 15px;
     }
 
-    .header-menu{
-      display:flex;
-      gap:20px;
-      font-size:15px;
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
     }
 
-    /* NAVBAR */
-    nav{
-      background:#0047b3;
-      padding:15px 40px;
+    nav {
+      background: #0047b3;
+      padding: 15px 40px;
     }
 
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:40px;
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
     }
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      font-weight:bold;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: color 0.2s;
     }
 
-    /* HERO */
-    .hero{
-      background:#ffd400;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:60px 70px;
-      flex-wrap:wrap;
+    nav a:hover { color: #ffd400; }
+
+    nav a.active {
+      color: #ffd400;
+      border-bottom: 2px solid #ffd400;
+      padding-bottom: 2px;
     }
 
-    .hero-text{
-      width:45%;
+    .hero {
+      background: #ffd400;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 70px;
+      flex-wrap: wrap;
     }
 
-    .hero-text h2{
-      font-size:58px;
-      color:#0047b3;
-      margin-bottom:15px;
+    .hero-text { width: 45%; }
+
+    .hero-text h2 {
+      font-size: 58px;
+      color: #0047b3;
+      margin-bottom: 15px;
     }
 
-    .hero-text h3{
-      font-size:32px;
-      color:red;
-      margin-bottom:20px;
+    .hero-text h3 {
+      font-size: 32px;
+      color: red;
+      margin-bottom: 20px;
     }
 
-    .hero-text p{
-      font-size:18px;
-      margin-bottom:30px;
-      line-height:1.6;
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
 
-    .hero-text button{
-      background:#0047b3;
-      color:white;
-      border:none;
-      padding:15px 30px;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      font-weight:bold;
+    .hero-text a {
+      background: #0047b3;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
     }
 
-    .hero img{
-      width:430px;
+    .hero-text a:hover { background: #003399; }
+
+    .hero img {
+      width: 430px;
+      border-radius: 12px;
     }
 
-    /* KATEGORI */
-    .kategori{
-      padding:60px 40px;
-      background:white;
-      text-align:center;
+    .kategori {
+      padding: 60px 40px;
+      background: white;
+      text-align: center;
     }
 
-    .kategori h2{
-      color:#0047b3;
-      margin-bottom:40px;
-      font-size:34px;
+    .kategori h2 {
+      color: #0047b3;
+      margin-bottom: 40px;
+      font-size: 34px;
     }
 
-    .kategori-box{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:25px;
-}
-    .box{
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:10px;
-      padding:25px;
-      transition:0.3s;
+    .kategori-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 25px;
     }
 
-    .box:hover{
-      transform:translateY(-5px);
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    .box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 25px;
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: #222;
+      display: block;
     }
 
-    .box img{
-      width:70px;
-      margin-bottom:15px;
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-color: #0047b3;
     }
 
-    .box h3{
-      font-size:18px;
+    .box img {
+      width: 70px;
+      margin-bottom: 15px;
     }
 
-    /* PRODUK */
-    .{
-      padding:60px 40px;
+    .box h3 { font-size: 18px; }
+
+    .produk {
+      padding: 60px 40px;
+      background: #f5f5f5;
     }
 
-    .produk h2{
-      text-align:center;
-      color:#0047b3;
-      margin-bottom:40px;
-      font-size:34px;
+    .produk h2 {
+      text-align: center;
+      color: #0047b3;
+      margin-bottom: 40px;
+      font-size: 34px;
     }
 
-    .produk-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-    .card{
-      background:white;
-      border-radius:10px;
-      padding:20px;
-      border:1px solid #ddd;
-      transition:0.3s;
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
     }
 
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      transition: 0.3s;
     }
 
-    .card img{
-      width:100%;
-      margin-bottom:15px;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    .card h3{
-      margin-bottom:10px;
-      font-size:18px;
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
     }
 
-    .harga{
-      color:red;
-      font-weight:bold;
-      margin-bottom:15px;
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
     }
 
-    .card button{
-      background:#ffd400;
-      border:none;
-      padding:10px 20px;
-      border-radius:5px;
-      cursor:pointer;
-      font-weight:bold;
+    .card button {
+      background: #ffd400;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      font-size: 14px;
+      transition: background 0.2s;
     }
 
-    /* FOOTER */
-    footer{
-      background:#0047b3;
-      color:white;
-      padding:40px;
-      margin-top:50px;
+    .card button:hover { background: #e6be00; }
+
+    .cta {
+      background: #0047b3;
+      color: white;
+      text-align: center;
+      padding: 60px 40px;
     }
 
-    .footer-container{
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:30px;
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
     }
 
-    footer h3{
-      margin-bottom:15px;
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
     }
 
-    footer p{
-      margin-bottom:10px;
+    .cta a {
+      background: #ffd400;
+      color: #222;
+      padding: 15px 35px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
     }
 
-    .copyright{
-      text-align:center;
-      margin-top:30px;
-      border-top:1px solid rgba(255,255,255,0.3);
-      padding-top:20px;
+    .cta a:hover { background: #e6be00; }
+
+    footer {
+      background: #0047b3;
+      color: white;
+      padding: 40px;
     }
 
-    /* RESPONSIVE */
-    @media(max-width:1000px){
-
-      .kategori-box{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .produk-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .hero{
-        flex-direction:column;
-        text-align:center;
-      }
-
-      .hero-text{
-        width:100%;
-        margin-bottom:30px;
-      }
-
-      .hero img{
-        width:300px;
-      }
-
-      .search-box{
-        display:none;
-      }
-
-      header{
-        flex-direction:column;
-        gap:20px;
-      }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
     }
 
+    footer h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #ffd400;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    footer a:hover { color: #ffd400; }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1000px) {
+      .kategori-box { grid-template-columns: repeat(3, 1fr); }
+      .produk-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { flex-direction: column; text-align: center; }
+      .hero-text { width: 100%; margin-bottom: 30px; }
+      .hero img { width: 300px; }
+      .search-box { display: none; }
+      header { flex-direction: column; gap: 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .topbar { flex-direction: column; text-align: center; gap: 5px; }
+      nav ul { flex-direction: column; gap: 15px; text-align: center; }
+      .hero-text h2 { font-size: 40px; }
+      .kategori-box { grid-template-columns: repeat(2, 1fr); }
+      .produk-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <p>Selamat datang di Toko SL Plastik</p>
     <p>Buka : Senin - Sabtu (08.00 - 17.00)</p>
   </div>
 
-  <!-- HEADER -->
   <header>
-
     <div class="logo">
-  <img 
-    src="logo.png" 
-    alt="Logo SL Plastik"
-    style="width:90px; height:90px; object-fit:cover; border-radius:50%;"
-  >
-
-  <div class="logo-text">
-    <h1>PLASTIK</h1>
-    <p>SOLUSI PLASTIK ANDA</p>
-  </div>
-
-</div>
-
+      <img src="logo.png" alt="Logo SL Plastik">
+      <div class="logo-text">
+        <h1>SL PLASTIK</h1>
+        <p>SOLUSI PLASTIK ANDA</p>
+      </div>
+    </div>
     <div class="search-box">
-      <input type="text" placeholder="Cari produk plastik...">
-      <button>Cari</button>
+      <input type="text" placeholder="Cari produk plastik..." id="searchInput" onkeydown="handleSearch(event)">
+      <button onclick="goSearch()">Cari</button>
     </div>
-
     <div class="header-menu">
-      <p>WhatsApp</p>
+      <a href="https://wa.me/6285220869625" target="_blank" class="wa-btn">&#128241; WhatsApp</a>
     </div>
-
   </header>
 
-  <!-- NAVBAR -->
   <nav>
     <ul>
-      <li><a href="index.html">Beranda</a></li>
+      <li><a href="index.html" class="active">Beranda</a></li>
       <li><a href="produk.html">Produk</a></li>
-      <li><a href="#">Tentang Kami</a></li>
-      <li><a href="#">Cara Belanja</a></li>
-      <li><a href="#">Kontak</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="tentang.html#cara-belanja">Cara Belanja</a></li>
+      <li><a href="tentang.html#kontak">Kontak</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
-
     <div class="hero-text">
       <h2>SL PLASTIK</h2>
       <h3>Solusi Kebutuhan Plastik Anda</h3>
-
-      <p>
-        Menyediakan berbagai jenis plastik berkualitas
-        seperti PP, HD, OPP, PE dan lainnya dengan
-        harga terbaik.
-      </p>
-
-      <button>Lihat Produk</button>
+      <p>Menyediakan berbagai jenis plastik berkualitas seperti PP, HD, OPP, PE dan lainnya dengan harga terbaik.</p>
+      <a href="produk.html">Lihat Produk</a>
     </div>
-
-    <img src="Screenshot 2026-05-31 194349.png" alt="plastik">
-
+    <img src="Screenshot 2026-05-31 194349.png" alt="Produk Plastik SL Plastik">
   </section>
 
-  <!-- KATEGORI -->
   <section class="kategori">
-
     <h2>Kategori Produk</h2>
-
     <div class="kategori-box">
-
-      <div class="box">
-        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+      <a href="produk.html?kategori=PP" class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="Plastik PP">
         <h3>Plastik PP</h3>
-      </div>
-
-      <div class="box">
-        <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png">
+      </a>
+      <a href="produk.html?kategori=HD" class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="Plastik HD">
         <h3>Plastik HD</h3>
-      </div>
-
-      <div class="box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+      </a>
+      <a href="produk.html?kategori=OPP" class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Plastik OPP">
         <h3>Plastik OPP</h3>
-      </div>
-
-      <div class="box">
-        <img src="https://cdn-icons-png.flaticon.com/512/679/679922.png">
+      </a>
+      <a href="produk.html?kategori=PE" class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679922.png" alt="Plastik PE">
         <h3>Plastik PE</h3>
-      </div>
-
-      <div class="box">
-        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046847.png">
+      </a>
+      <a href="produk.html?kategori=Kantong" class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046847.png" alt="Kantong Plastik">
         <h3>Kantong Plastik</h3>
-      </div>
-
-      <div class="box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png">
+      </a>
+      <a href="produk.html" class="box">
+        <img src="https://cdn-icons-png.flaticon.com/512/3500/3500833.png" alt="Lainnya">
         <h3>Lainnya</h3>
-      </div>
-
+      </a>
     </div>
-
   </section>
 
-  <br>
-
-  <!-- PRODUK -->
   <section class="produk">
-
     <h2>Rekomendasi Produk</h2>
-
     <div class="produk-grid">
-
       <div class="card">
-        <img src="mika burger.jpg">
+        <img src="mika burger.jpg" alt="Mika Burger">
         <h3>Mika Burger</h3>
-        <button>Lihat Detail</button>
+        <button onclick="window.location.href='produk.html'">Lihat Detail</button>
       </div>
-
       <div class="card">
-        <img src="Tali rafia 1kg.jpg">
-        <h3>Tali rafia 1kg</h3>
-        <button>Lihat Detail</button>
+        <img src="Tali rafia 1kg.jpg" alt="Tali Rafia 1kg">
+        <h3>Tali Rafia 1kg</h3>
+        <button onclick="window.location.href='produk.html'">Lihat Detail</button>
       </div>
-
       <div class="card">
-        <img src="plastik PP 03.jpg">
-        <h3>plastik PP 03</h3>
-        <button>Lihat Detail</button>
+        <img src="plastik PP 03.jpg" alt="Plastik PP 03">
+        <h3>Plastik PP 03</h3>
+        <button onclick="window.location.href='produk.html'">Lihat Detail</button>
       </div>
-
       <div class="card">
-        <img src="lakban kertas 1inch.jpg">
-        <h3>lakban kertas 1 inch</h3>
-        <button>Lihat Detail</button>
+        <img src="lakban kertas 1inch.jpg" alt="Lakban Kertas 1 Inch">
+        <h3>Lakban Kertas 1 Inch</h3>
+        <button onclick="window.location.href='produk.html'">Lihat Detail</button>
       </div>
-
       <div class="card">
-        <img src="kresek HD 35.jpg">
+        <img src="kresek HD 35.jpg" alt="Kresek HD 35">
         <h3>Kresek HD 35</h3>
-        <button>Lihat Detail</button>
+        <button onclick="window.location.href='produk.html'">Lihat Detail</button>
       </div>
-
     </div>
-
   </section>
 
-  <!-- FOOTER -->
+  <section class="cta">
+    <h2>Butuh Bantuan Memilih Produk?</h2>
+    <p>Hubungi kami langsung via WhatsApp, kami siap membantu Anda!</p>
+    <a href="https://wa.me/6285220869625" target="_blank">Chat WhatsApp Sekarang</a>
+  </section>
+
   <footer>
-
     <div class="footer-container">
-
       <div>
         <h3>SL Plastik</h3>
-        <p>Jl. Leuwi Panjang No.127 A, Kb. Lega, Kec. Bojongloa Kidul,</p>
-        <p>Kota Bandung, Jawa Barat 40233</p>
+        <p>Jl. Leuwi Panjang No.127 A, Kb. Lega,</p>
+        <p>Kec. Bojongloa Kidul, Kota Bandung,</p>
+        <p>Jawa Barat 40233</p>
       </div>
-
       <div>
         <h3>Kontak</h3>
-        <p>WhatsApp : 0852-2086-9625</p>
+        <p><a href="https://wa.me/6285220869625" target="_blank">WhatsApp : 0852-2086-9625</a></p>
       </div>
-
       <div>
         <h3>Sosial Media</h3>
-        <p>Instagram : dani_sl_plastik</p>
+        <p><a href="https://instagram.com/dani_sl_plastik" target="_blank">Instagram : dani_sl_plastik</a></p>
       </div>
-
+      <div>
+        <h3>Navigasi</h3>
+        <p><a href="index.html">Beranda</a></p>
+        <p><a href="produk.html">Produk</a></p>
+        <p><a href="tentang.html">Tentang Kami</a></p>
+      </div>
     </div>
-
     <div class="copyright">
       <p>© 2026 SL Plastik. All Rights Reserved.</p>
     </div>
-
   </footer>
+
+  <script>
+    function handleSearch(e) {
+      if (e.key === 'Enter') goSearch();
+    }
+    function goSearch() {
+      const q = document.getElementById('searchInput').value.trim();
+      if (q) window.location.href = 'produk.html?cari=' + encodeURIComponent(q);
+    }
+  </script>
 
 </body>
 </html>
